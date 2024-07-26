@@ -6,7 +6,7 @@ import gradio as gr
 import pathspec
 import shutil
 
-# Default ignore patterns (same as before)
+# Default ignore patterns
 DEFAULT_IGNORE_PATTERNS = [
     '.git', '.gitignore', '.gitattributes', '.gitmodules',
     '__pycache__', '*.pyc', '*.pyo', '*.pyd',

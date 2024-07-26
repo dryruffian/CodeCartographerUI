@@ -97,4 +97,4 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
-This project is open source and available under the [MIT License](https://github.com/dryruffian/CodeCartographerUI/blob/main/LICENSE.md)).
+This project is open source and available under the [MIT License](https://github.com/dryruffian/CodeCartographerUI/blob/main/LICENSE.md).

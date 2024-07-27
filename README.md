@@ -1,4 +1,4 @@
-# File Extractor and Processor
+#Code Cartographer
 
 This project provides a Gradio-based web interface for extracting and processing archive files. It supports various archive formats including ZIP, RAR, and 7z. The tool extracts the contents of the uploaded archive, generates a directory tree, and displays the contents of text files while respecting .gitignore patterns and common ignore rules.
 

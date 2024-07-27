@@ -15,7 +15,7 @@ DEFAULT_IGNORE_PATTERNS = [
     '.vscode', '.idea', '*.swp',
     '*.class', '*.o', '*.so',
     '*.log',
-    '*~', '*.bak', '*.tmp',
+    '*~', '*.bak', '*.tmp','.env','build','package-lock.json','package.json'
 ]
 
 def extract_file(file_path, extract_dir):
@@ -60,7 +60,6 @@ def extract_and_process(file):
     output += process_directory(temp_dir, spec)
     
     shutil.rmtree(temp_dir)
-    
     return output
 
 def generate_tree(path, spec):
@@ -119,6 +118,6 @@ with gr.Blocks(css="#copy_button { margin-top: 10px; }") as iface:
         copy_button = gr.Button("Copy to Clipboard", elem_id="copy_button")
 
     submit_button.click(extract_and_process, inputs=input_file, outputs=output)
-    copy_button.click(None, [], [],js=js_copy)
+    copy_button.click(None, [], None, js=js_copy)
 
 iface.launch()

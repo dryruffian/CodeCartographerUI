@@ -6,7 +6,6 @@ import gradio as gr
 import pathspec
 import shutil
 
-# Default ignore patterns
 DEFAULT_IGNORE_PATTERNS = [
     '.git', '.gitignore', '.gitattributes', '.gitmodules',
     '__pycache__', '*.pyc', '*.pyo', '*.pyd',
@@ -15,7 +14,8 @@ DEFAULT_IGNORE_PATTERNS = [
     '.vscode', '.idea', '*.swp',
     '*.class', '*.o', '*.so',
     '*.log',
-    '*~', '*.bak', '*.tmp','.env','build','package-lock.json','package.json'
+    '*~', '*.bak', '*.tmp','.env','build','package-lock.json',
+    'package.json'
 ]
 
 def extract_file(file_path, extract_dir):

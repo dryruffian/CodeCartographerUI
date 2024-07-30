@@ -14,9 +14,10 @@ DEFAULT_IGNORE_PATTERNS = [
     '.vscode', '.idea', '*.swp',
     '*.class', '*.o', '*.so',
     '*.log',
-    '*~', '*.bak', '*.tmp','.env','build','package-lock.json',
-    'package.json'
+    '*~', '*.bak', '*.tmp', '.env', 'build', 'package-lock.json',
+    'package.json', '*.svg','*.yaml'
 ]
+
 
 def extract_file(file_path, extract_dir):
     file_lower = file_path.lower()
@@ -36,10 +37,11 @@ def extract_file(file_path, extract_dir):
         with py7zr.SevenZipFile(file_path, mode='r') as z:
             z.extractall(path=extract_dir)
 
+
 def extract_and_process(file):
     temp_dir = "temp_extracted"
     os.makedirs(temp_dir, exist_ok=True)
-    
+
     try:
         extract_file(file.name, temp_dir)
     except Exception as e:
@@ -58,9 +60,10 @@ def extract_and_process(file):
     tree = generate_tree(temp_dir, spec)
     output = tree + "\n\n"
     output += process_directory(temp_dir, spec)
-    
+
     shutil.rmtree(temp_dir)
     return output
+
 
 def generate_tree(path, spec):
     tree = "Working Directory Tree:\n"
@@ -78,6 +81,7 @@ def generate_tree(path, spec):
         dirs[:] = [d for d in dirs if not spec.match_file(os.path.relpath(os.path.join(root, d), path))]
     return tree
 
+
 def process_directory(path, spec):
     output = ""
     for root, dirs, files in os.walk(path):
@@ -94,6 +98,7 @@ def process_directory(path, spec):
         dirs[:] = [d for d in dirs if not spec.match_file(os.path.relpath(os.path.join(root, d), path))]
     return output
 
+
 # JavaScript function to copy text to clipboard
 js_copy = """
 function copyToClipboard() {
@@ -105,14 +110,15 @@ function copyToClipboard() {
 
 with gr.Blocks(css="#copy_button { margin-top: 10px; }") as iface:
     gr.Markdown("# File Extractor and Processor")
-    gr.Markdown("Upload an archive file to extract its contents and view the directory structure and file contents. Respects .gitignore if present and ignores common cache and system files.")
-    
+    gr.Markdown(
+        "Upload an archive file to extract its contents and view the directory structure and file contents. Respects .gitignore if present and ignores common cache and system files.")
+
     with gr.Row():
         input_file = gr.File(label="Upload archive file (ZIP, RAR, or other supported formats)")
-    
+
     with gr.Row():
         output = gr.Textbox(label="Extracted Content", lines=25, elem_classes=["output-text"])
-    
+
     with gr.Row():
         submit_button = gr.Button("Extract and Process")
         copy_button = gr.Button("Copy to Clipboard", elem_id="copy_button")

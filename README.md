@@ -1,6 +1,6 @@
 # Code Cartographer
 
-This project provides a Gradio-based web interface for CHating with your files. It supports various archive formats including ZIP, RAR, and 7z. The tool extracts the contents of the uploaded archive, generates a directory tree, and displays the contents of text files while respecting .gitignore patterns and common ignore rules.
+This project provides a Gradio-based web interface for Chating with your files.Imagine a situation you are creating a react project and you ahave multiple components you are stuck in a problem and you can use ai for your help but it s is  It supports various archive formats including ZIP, RAR, and 7z. The tool extracts the contents of the uploaded archive, generates a directory tree, and displays the contents of text files while respecting .gitignore patterns and common ignore rules.
 
 ## Features
 
